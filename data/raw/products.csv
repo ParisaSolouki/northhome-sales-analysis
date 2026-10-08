@@ -1,0 +1,25 @@
+﻿product_id,product_name,category
+P001,Mug,Kitchen
+P002,Bowl,Kitchen
+P003,Plate,Kitchen
+P004,Cutting Board,Kitchen
+P005,Storage Jar,Kitchen
+P006,Tea Pot,
+P007,Desk Lamp,Lighting
+P008,Floor Lamp,Lighting
+P009,Wall Light,Lighting
+P010,LED Strip,Lighting
+P011,Bedside Lamp,Lighting
+P012,Pendant Light,Lighting
+P013,Cushion,Textiles
+P014,Throw,Textiles
+P015,Bath Towel,Textiles
+P016,Tea Towel,Textiles
+P017,Duvet Cover,Textiles
+P018,Tablecloth,
+P019,Basket,Storage
+P020,Shelf,Storage
+P021,Storage Box,Storage
+P022,Shoe Rack,Storage
+P023,Drawer Organizer,Storage
+P024,Coat Hook,Storage

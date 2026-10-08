@@ -1,0 +1,19 @@
+﻿table,column,suggested_type,meaning
+orders,order_id,text,Order identifier; intended unique in orders.
+orders,customer_id,text,Anonymous synthetic customer identifier; repeat purchases possible.
+orders,order_date,date,Purchase date; ISO YYYY-MM-DD.
+orders,order_status,text,"Canonical values: Delivered, Cancelled, Shipped, Paid. Paid/Shipped are not delivered."
+orders,country,text,Delivery country.
+orders,sales_channel,text,Website or Marketplace.
+orders,promised_delivery_date,date,Promised delivery date; exists even on cancelled orders.
+orders,delivered_date,nullable date,Actual delivery date; blank for undelivered/cancelled orders; missing values must be investigated.
+order_items,order_id,text,References orders.order_id.
+order_items,line_number,integer,"Line identifier within an order; intended key is (order_id, line_number)."
+order_items,product_id,text,References products.product_id.
+order_items,quantity,integer,Number of units purchased on this line.
+order_items,unit_price_eur,decimal,Unit selling price BEFORE discount; excludes VAT and shipping.
+order_items,discount_pct,decimal,Percentage points from 0 to 100; 10 means 10%.
+order_items,unit_cost_eur,decimal,Unit purchase cost at order time; for optional gross profit analysis.
+products,product_id,text,Unique product identifier.
+products,product_name,text,Product label.
+products,category,nullable text,"Category from source catalogue; blank means missing, not zero."
