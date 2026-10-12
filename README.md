@@ -1,32 +1,60 @@
 # NorthHome Sales Analysis
 
-A step-by-step Power BI and SQL practice project using synthetic
-e-commerce data from a fictional homeware store.
+An analysis of sales performance and delivery reliability using
+Power BI and SQL, based on synthetic e-commerce data from a
+fictional homeware retailer.
 
-## Business objective
+## Business Objective
 
-Build a one-page dashboard to review sales performance,
-monthly growth, product categories, and delivery delays.
+Build a one-page dashboard to help management review:
+
+- Monthly sales and month-over-month growth.
+- Valid order counts and average order value.
+- Sales performance by product category.
+- The percentage of delivered orders that arrived late.
+
+The dashboard will support filtering by country, sales channel,
+and product category.
+
+## Dataset
+
+The dataset contains orders placed between January 1 and
+December 31, 2025, with an extraction date of January 15, 2026.
+
+Some December orders were delivered in January 2026.
+
+All records are synthetic and contain no real customer
+or company information.
+
+| Table | Description |
+| --- | --- |
+| orders | Order dates, statuses, countries, sales channels, and delivery dates |
+| order_items | Products ordered, quantities, unit prices, discounts, and unit costs |
+| products | Product names and categories |
+
+All monetary values are in EUR and exclude VAT and shipping charges.
+Returns and refunds are outside the dataset's scope.
 
 ## Tools
 
-- Power BI: data preparation, modeling, DAX, and visualization
-- MySQL: validation queries
-- VS Code and Git: documentation and version control
+- **Power BI:** Power Query, data modeling, DAX, and visualization.
+- **MySQL:** Data quality checks and metric validation.
+- **VS Code:** SQL files and project documentation.
+- **Git and GitHub:** Version control.
 
-## Data
+## Repository Structure
 
-The dataset contains orders placed during 2025.
-All records are synthetic and contain no real customer information.
-
-Original CSV files are preserved in `data/raw`.
-Business rules and column definitions are available in `docs`.
-
-## Progress
-
-- [x] Project setup and source files
-- [ ] Data exploration and quality assessment
-- [ ] Data cleaning and modeling
-- [ ] DAX measures
-- [ ] SQL validation
-- [ ] One-page dashboard and findings
+```text
+northhome-sales-analysis/
+├── README.md
+├── .gitignore
+├── data/
+│   └── raw/
+│       ├── orders.csv
+│       ├── order_items.csv
+│       └── products.csv
+├── docs/
+│   ├── PROJECT_BRIEF.md
+│   └── data_dictionary.csv
+├── sql/
+└── powerbi/

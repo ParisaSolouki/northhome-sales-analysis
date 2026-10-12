@@ -1,47 +1,131 @@
-# پروژهٔ تمرینی فروشگاه لوازم خانه
+# NorthHome Sales Analysis — Project Brief
 
-این فروشگاه و تمام داده‌ها ساختگی و مخصوص تمرین هستند. دادهٔ واقعی مشتری یا شرکت نیستند.
+## Business Context
 
-## درخواست مدیر فروشگاه
+NorthHome is a fictional online homeware retailer serving customers
+in the Netherlands, Belgium, and Germany through its website
+and a marketplace.
 
-«برای عملکرد سال گذشته یک صفحه گزارش می‌خواهم. فروش ماهانه و تغییر آن نسبت به ماه قبل، تعداد سفارش‌ها و میانگین مبلغ هر سفارش را نشان بده. مشخص کن کدام دسته‌های محصول بیشترین فروش را دارند و چه سهمی از سفارش‌های تحویل‌شده با تأخیر رسیده‌اند. امکان انتخاب کشور، کانال فروش و دستهٔ محصول لازم است.»
+Management needs a one-page dashboard to review sales performance
+and delivery reliability for orders placed in 2025.
 
-## محدوده
+## Business Questions
 
-تاریخ سفارش‌ها: اول ژانویه تا پایان دسامبر ۲۰۲۵. تاریخ استخراج: ۱۵ ژانویهٔ ۲۰۲۶.
-واحد مبالغ: یورو. قیمت‌ها بدون مالیات و هزینهٔ ارسال‌اند. ساعت، ارزهای دیگر، مرجوعی و بازپرداخت در این پروژه مدل نشده‌اند.
-تحویل بعضی سفارش‌های دسامبر در ژانویه انجام شده است؛ این سفارش‌ها همچنان سفارش‌های سال ۲۰۲۵ هستند.
+- How much did the store sell each month?
+- How did monthly sales change compared with the previous month?
+- How many valid orders were placed?
+- What was the average sales amount per valid order?
+- Which product categories generated the most sales?
+- What percentage of delivered orders arrived late?
 
-سه فایل خام دارید: سفارش‌ها، اقلام سفارش و محصولات. جزئیات فیلدها در فایل فرهنگ داده آمده‌اند.
-در خروجی خام چند مشکل محدود کیفیت داده وجود دارد. مقدار خالی را بدون بررسی به صفر تبدیل نکنید. دادهٔ خام را نگه دارید و تغییرات را در مراحل پاک‌سازی ثبت کنید.
+The dashboard should support filtering by country, sales channel,
+and product category.
 
-## قواعد تأییدشدهٔ کسب‌وکار
+## Data Scope
 
-- مبلغ فروش محصولات برابر است با تعداد ضرب‌در قیمت واحد پس از تخفیف. مبلغ تخفیف در هر قلم به صورت درصد ذخیره شده است؛ ده یعنی ده درصد، نه یک‌دهم درصد.
-- فروش و تعداد سفارش‌های معتبر شامل همهٔ وضعیت‌ها به‌جز لغوشده هستند. این شاخص فروش سفارش‌شده است، نه درآمد شناسایی‌شدهٔ حسابداری یا وجه دریافتی.
-- تاریخ مبنای تحلیل فروش، تاریخ ثبت سفارش است.
-- هر سفارش باید فقط یک‌بار در شمارش سفارش‌ها حساب شود. یک سفارش ممکن است چند قلم محصول داشته باشد.
-- هنگام انتخاب دستهٔ محصول، مبلغ فروش فقط شامل اقلام همان دسته است؛ تعداد سفارش، سفارش‌های دارای حداقل یک قلم از همان دسته را می‌شمارد. میانگین مبلغ در این حالت، فروش اقلام انتخاب‌شده تقسیم بر همین تعداد سفارش است.
-- برای نرخ تأخیر، فقط سفارش‌های تحویل‌شده با هر دو تاریخ معتبر وارد محاسبه شوند. تحویل بعد از تاریخ وعده‌داده‌شده یعنی تأخیر؛ تحویل در همان روز تأخیر نیست.
-- سفارش تحویل‌شده بدون تاریخ واقعی، مسئلهٔ کیفیت داده است. تعداد این موارد جداگانه ثبت شود و از مخرج نرخ تأخیر حذف شود.
-- هنگام انتخاب محصول، تأخیر همچنان در سطح سفارش‌های دارای محصول انتخاب‌شده سنجیده می‌شود؛ دادهٔ تحویل جداگانه برای هر قلم نداریم.
-- برای اولین ماه موجود، رشد نسبت به ماه قبل ناموجود است؛ آن را صفر فرض نکنید.
-- هزینهٔ واحد برای تمرین اختیاری سود ناخالص موجود است؛ هزینهٔ عملیاتی نداریم و نباید سود خالص گزارش کنیم.
+- Order period: January 1 to December 31, 2025.
+- Extraction date: January 15, 2026.
+- Currency: EUR.
+- Prices exclude VAT and shipping charges.
+- Returns and refunds are outside the dataset's scope.
+- Some December orders were delivered in January 2026.
 
-## شیوهٔ اجرای پروژه
+All data is synthetic and represents a fictional business.
+No real customer or company records are included.
 
-۱. شناخت جدول‌ها و سطح هر ردیف.
-۲. بررسی کیفیت، ثبت ایرادها و تصمیم دربارهٔ پاک‌سازی.
-۳. ساخت مدل و جدول تاریخ.
-۴. ساخت شاخص‌های پایه، یکی‌یکی.
-۵. مقایسهٔ ماهانه و بررسی اثر فیلترها.
-۶. کنترل چند عدد با پرس‌وجوی پایگاه داده.
-۷. ساخت یک صفحه داشبورد و بیان سه یافته همراه با محدودیت‌ها.
+## Source Tables
 
-این بسته هیچ فرمول دکس، پاسخ عددی شاخص‌ها یا داشبورد آماده ندارد.
+| File | Intended row level | Intended unique key |
+| --- | --- | --- |
+| orders.csv | One row per order | order_id |
+| order_items.csv | One row per order line | order_id + line_number |
+| products.csv | One row per product | product_id |
 
-## اولین تمرین
+These are the intended structures. Key uniqueness and data quality
+must be verified before modeling.
 
-فایل‌ها را در ویرایشگر پرس‌وجوی پاور بی‌آی باز کنید؛ هنوز پاک‌سازی یا رابطه‌سازی نکنید.
-برای هر جدول یادداشت کنید: تعداد ردیف‌ها، معنای یک ردیف، کلید احتمالی و نوع دادهٔ هر ستون.
-به‌ویژه بررسی کنید آیا شناسهٔ سفارش در جدول اقلام باید یکتا باشد یا خیر.
+Column definitions are provided in `data_dictionary.csv`.
+
+## Business Rules
+
+### Sales
+
+- Line sales equal quantity multiplied by unit price,
+  adjusted for the line discount.
+- Discounts are stored as percentage points:
+  a value of 10 means a 10% discount.
+- Sales and valid order counts include all statuses
+  except Cancelled.
+- Sales represent the value of orders placed, rather than
+  recognized accounting revenue or cash received.
+- Sales are attributed to the order date.
+
+### Order Counts and Average Order Value
+
+- Each valid order must be counted once, regardless
+  of its number of order lines.
+- Average order value equals sales divided by the
+  corresponding valid order count.
+- When filtering by product category, sales include only
+  the selected category's order lines.
+- The corresponding order count includes valid orders
+  containing at least one line from the selected category.
+- Under that filter, average order value represents selected
+  category sales per matching order, rather than the value
+  of the entire basket.
+
+### Monthly Comparisons
+
+- Monthly sales are compared with the preceding calendar month.
+- Growth is unavailable when the previous month's sales
+  are missing or zero.
+- The first month in the dataset has no previous-month
+  comparison available.
+
+### Delivery Performance
+
+- An order is late when its actual delivery date is later
+  than its promised delivery date.
+- Delivery on the promised date is considered on time.
+- The late delivery rate includes only Delivered orders
+  with valid promised and actual delivery dates.
+- Delivered orders with missing or invalid delivery dates
+  are excluded from this rate and recorded separately
+  as data quality issues.
+- Delivery is recorded at order level, not order-line level.
+- Product category filters select matching orders for
+  delivery analysis; each matching order is counted once.
+
+### Optional Gross Profit Analysis
+
+- Unit purchase costs are available for gross profit analysis.
+- Gross profit equals sales minus the purchase cost
+  of the corresponding units.
+- Operating expenses are not included, so net profit
+  cannot be calculated from this dataset.
+
+## Data Quality and Validation
+
+Preserve the original CSV files in `data/raw`.
+
+Before modeling, assess:
+
+- Duplicate records and key uniqueness.
+- Missing values.
+- Data types and date validity.
+- Consistency of order status values.
+- References between orders, order lines, and products.
+- Validity of quantities, prices, discounts, and costs.
+
+Document cleaning decisions and their impact on the data.
+
+Use SQL checks where needed to validate data quality
+and reconcile Power BI measures with source records.
+
+## Deliverables
+
+- A one-page Power BI dashboard.
+- Documented data preparation and modeling decisions.
+- DAX measure definitions.
+- SQL validation queries.
+- Key findings and analysis limitations.
